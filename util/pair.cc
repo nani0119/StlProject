@@ -25,8 +25,8 @@ int main(int argc, char *argv[])
 {
 	// 获取pair中包含的值
 	pair<int, float> p(1, 3.14);
-    cout << "pair:p [" << p.first << "," <<p.second<<"]"<< endl;
-    cout << "pair:p [" << get<0>(p) << "," << get<1>(p) << "]" << endl;
+        cout << "pair:p [" << p.first << "," <<p.second<<"]"<< endl;
+        cout << "pair:p [" << get<0>(p) << "," << get<1>(p) << "]" << endl;
 
 	int c;
 	std::tie(c, std::ignore) = p;
@@ -55,12 +55,12 @@ int main(int argc, char *argv[])
 	pair<int,float> p1 = make_pair(1, 3.14);
 
 	// piecewise_construct 将tuple中的值逐个传入的构造函数中
-    tuple<int, float> t (1, 3.14);
-    pair<int, Foo> p3 (1, t);
-    pair<int, Foo> p4 (std::piecewise_construct, make_tuple(1), t);
+        tuple<int, float> t (1, 3.14);
+        pair<int, Foo> p3 (1, t);
+        pair<int, Foo> p4 (std::piecewise_construct, make_tuple(1), t);
 
 	// 比较
-    cout <<"p == p1:" << std::boolalpha << (p==p1) << endl;
+        cout <<"p == p1:" << std::boolalpha << (p==p1) << endl;
     
 
 	// 获取pair　element 数据类型	
