@@ -59,7 +59,9 @@ include_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib")
 add_subdirectory(Example)
 add_subdirectory(lib)
 add_subdirectory(util)
+add_subdirectory(doc)
 # =============================================================
 
 #指定安装时使用的路径前缀
 set(CMAKE_INSTALL_PREFIX "${PROJECT_BINARY_DIR}/install")
+
