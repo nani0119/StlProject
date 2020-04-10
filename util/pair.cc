@@ -85,8 +85,8 @@ public:
 		/// @endcode
 		
 		/// 3. tie方法
-		int c;
 		/// @code
+		int c;
 		std::tie(c, std::ignore) = p;
 		/// @endcode
 		cout << c << endl;

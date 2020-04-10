@@ -2,7 +2,11 @@
 #include <system_error>
 #include <future>
 #include <iostream>
-
+/**
+ * @file		util_exception.cpp
+ * @brief 		异常显示
+ * @version		1.0
+ */
 template <typename T>
 void processCodeException(const T& e)
 {
@@ -15,7 +19,11 @@ void processCodeException(const T& e)
 	cerr << "- def value:		" << c.default_error_condition().value() << endl;
 	cerr << "- def msg:		" << c.default_error_condition().message() << endl;
 }
-
+/**
+ * @brief   打印异常说明
+ * @return 返回说明
+ * 		@retval 无 
+ */
 void processException()
 {
 	using namespace std;
