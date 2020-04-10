@@ -36,3 +36,14 @@ add_dependencies(tuple_exe util_tupleprint)
 
 # 指定安装的文件信息
 install(TARGETS tuple_exe DESTINATION bin)
+
+# ======================================================
+# 自动包含当前目录代码文件
+set(SHAREDPTR_FILE "sharedptr.cc")
+
+# 生成可执行文件
+add_executable(sharedptr_exe ${SHAREDPTR_FILE})
+
+
+# 指定安装的文件信息
+install(TARGETS sharedptr_exe DESTINATION bin)
