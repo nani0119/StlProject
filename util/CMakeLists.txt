@@ -57,3 +57,13 @@ add_executable(weakptr_exe ${WEAKPTR_FILE})
 
 # 指定安装的文件信息
 install(TARGETS weakptr_exe DESTINATION bin)
+
+# ======================================================
+# 自动包含当前目录代码文件
+set(UNIQUEPTR_FILE "uniqueptr.cc")
+
+# 生成可执行文件
+add_executable(uniqueptr_exe ${UNIQUEPTR_FILE})
+
+# 指定安装的文件信息
+install(TARGETS uniqueptr_exe DESTINATION bin)
