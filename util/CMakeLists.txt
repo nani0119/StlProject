@@ -67,3 +67,13 @@ add_executable(uniqueptr_exe ${UNIQUEPTR_FILE})
 
 # 指定安装的文件信息
 install(TARGETS uniqueptr_exe DESTINATION bin)
+
+# ======================================================
+# 自动包含当前目录代码文件
+set(NUMERIC_LIMIT_FILE "numericlimit.cc")
+
+# 生成可执行文件
+add_executable(numeric_limit_exe ${NUMERIC_LIMIT_FILE})
+
+# 指定安装的文件信息
+install(TARGETS numeric_limit_exe DESTINATION bin)
