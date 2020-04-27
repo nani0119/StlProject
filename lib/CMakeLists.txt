@@ -47,9 +47,23 @@ install(FILES util_tupleprint.h DESTINATION include)
 
 set(UTIL_NUMERIC_LIMIT_INFO_DIR ${PROJECT_BINARY_DIR}/install/include)
 add_custom_target(UTIL_NUMERIC_LIMIT_INFO
-				  COMMAND  mkdir -p ${UTIL_TUBLE_PRINTINCLUDE_DIR_DIR}
+				  COMMAND  mkdir -p ${UTIL_TUBLE_PRINTINCLUDE_DIR}
 				  COMMAND  cp ${CMAKE_CURRENT_SOURCE_DIR}/util_numeric_limit_info.h ${UTIL_NUMERIC_LIMIT_INFO_DIR}	
 				  COMMENT "copy util_numeric_limit_info  header"
+	             )
+
+# 安装设置
+install(FILES util_tupleprint.h DESTINATION include)
+
+# ======================================================
+# 自动包含当前目录代码文件
+# aux_source_directory(. DIR_SRCS)
+
+set(UTIL_TRAITS_DIR ${PROJECT_BINARY_DIR}/install/include)
+add_custom_target(UTIL_TRAITS
+				  COMMAND  mkdir -p ${UTIL_TRAITS_DIR}
+				  COMMAND  cp ${CMAKE_CURRENT_SOURCE_DIR}/util_type_traits.h ${UTIL_TRAITS_DIR}	
+				  COMMENT "copy util_traits  header"
 	             )
 
 # 安装设置

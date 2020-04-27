@@ -2,7 +2,6 @@
 #define UTIL_NUMERIC_LIMIT_INFO
 #include <iostream>
 #include <limits>
-#include <iostream>
 
 template <typename T>
 class NumericLimitInfo

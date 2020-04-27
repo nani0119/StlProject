@@ -77,3 +77,13 @@ add_executable(numeric_limit_exe ${NUMERIC_LIMIT_FILE})
 
 # 指定安装的文件信息
 install(TARGETS numeric_limit_exe DESTINATION bin)
+
+# ======================================================
+# 自动包含当前目录代码文件
+set(TYPE_TRAITS_FILE "typetraits.cc")
+
+# 生成可执行文件
+add_executable(type_traits_exe ${TYPE_TRAITS_FILE})
+
+# 指定安装的文件信息
+install(TARGETS type_traits_exe DESTINATION bin)
