@@ -11,38 +11,36 @@ void checkTraitsType()
 	std::cout << "##############################################################" << std::endl;
 	std::string name = typeid(T).name();
 	std::cout << std::boolalpha<<std::endl;
-    std::cout << "type name:                      " << name << std::endl;	
-	std::cout << "is_void<T>:                     " << std::is_void<T>::value << std::endl;
-	std::cout << "is_integral<T>:                 " << std::is_integral<T>::value << std::endl;
-	std::cout << "is_floating_point<T>:           " << std::is_floating_point<T>::value << std::endl;
-	std::cout << "is_arithmetic<T>:               " << std::is_arithmetic<T>::value << std::endl;
-	std::cout << "is_signed<T>:                   " << std::is_signed<T>::value << std::endl;
-	std::cout << "is_unsigned<T>:                 " << std::is_unsigned<T>::value << std::endl;
-	std::cout << "is_const<T>:                    " << std::is_const<T>::value << std::endl;
-	std::cout << "is_volatile<T>:                 " << std::is_volatile<T>::value << std::endl;
-	std::cout << "is_array<T>:                    " << std::is_array<T>::value << std::endl;
-	std::cout << "is_enum<T>:                     " << std::is_enum<T>::value << std::endl;
-	std::cout << "is_union<T>:                    " << std::is_union<T>::value << std::endl;
-	std::cout << "is_class<T>:                    " << std::is_class<T>::value << std::endl;
-	std::cout << "is_function<T>:                 " << std::is_function<T>::value << std::endl;
-	std::cout << "is_reference<T>:                " << std::is_reference<T>::value << std::endl;
-	std::cout << "is_lvalue_reference<T>:         " << std::is_lvalue_reference<T>::value << std::endl;
-	std::cout << "is_rvalue_reference<T>:         " << std::is_rvalue_reference<T>::value << std::endl;
-	std::cout << "is_pointer<T>:                  " << std::is_pointer<T>::value << std::endl;
-	std::cout << "is_member_pointer<T>:           " << std::is_member_pointer<T>::value << std::endl;
-	std::cout << "is_member_object_pointer<T>:    " << std::is_member_object_pointer<T>::value << std::endl;
-	std::cout << "is_member_function_pointer<T>:  " << std::is_member_function_pointer<T>::value << std::endl;
-	std::cout << "is_fundamental<T>:              " << std::is_fundamental<T>::value << std::endl;
-	std::cout << "is_scalar<T>:                   " << std::is_scalar<T>::value << std::endl;
-	std::cout << "is_object<T>:                   " << std::is_object<T>::value << std::endl;
-	std::cout << "is_compound<T>:                 " << std::is_compound<T>::value << std::endl;
-	std::cout << "is_trivial<T>:                  " << std::is_trivial<T>::value << std::endl;
-	std::cout << "is_trivially_copyable<T>:       " << std::is_trivially_copyable<T>::value << std::endl;
-	std::cout << "is_standard_layout<T>:          " << std::is_standard_layout<T>::value << std::endl;
-	std::cout << "is_pod<T>:                      " << std::is_pod<T>::value << std::endl;
-	std::cout << "is_literal_type<T>:             " << std::is_literal_type<T>::value << std::endl;
-
-	
+    std::cout << "type name:                             " << name << std::endl;	
+	std::cout << "is_void<T>:                            " << std::is_void<T>::value << std::endl;
+	std::cout << "is_integral<T>:                        " << std::is_integral<T>::value << std::endl;
+	std::cout << "is_floating_point<T>:                  " << std::is_floating_point<T>::value << std::endl;
+	std::cout << "is_arithmetic<T>:                      " << std::is_arithmetic<T>::value << std::endl;
+	std::cout << "is_signed<T>:                          " << std::is_signed<T>::value << std::endl;
+	std::cout << "is_unsigned<T>:                        " << std::is_unsigned<T>::value << std::endl;
+	std::cout << "is_const<T>:                           " << std::is_const<T>::value << std::endl;
+	std::cout << "is_volatile<T>:                        " << std::is_volatile<T>::value << std::endl;
+	std::cout << "is_array<T>:                           " << std::is_array<T>::value << std::endl;
+	std::cout << "is_enum<T>:                            " << std::is_enum<T>::value << std::endl;
+	std::cout << "is_union<T>:                           " << std::is_union<T>::value << std::endl;
+	std::cout << "is_class<T>:                           " << std::is_class<T>::value << std::endl;
+	std::cout << "is_function<T>:                        " << std::is_function<T>::value << std::endl;
+	std::cout << "is_reference<T>:                       " << std::is_reference<T>::value << std::endl;
+	std::cout << "is_lvalue_reference<T>:                " << std::is_lvalue_reference<T>::value << std::endl;
+	std::cout << "is_rvalue_reference<T>:                " << std::is_rvalue_reference<T>::value << std::endl;
+	std::cout << "is_pointer<T>:                         " << std::is_pointer<T>::value << std::endl;
+	std::cout << "is_member_pointer<T>:                  " << std::is_member_pointer<T>::value << std::endl;
+	std::cout << "is_member_object_pointer<T>:           " << std::is_member_object_pointer<T>::value << std::endl;
+	std::cout << "is_member_function_pointer<T>:         " << std::is_member_function_pointer<T>::value << std::endl;
+	std::cout << "is_fundamental<T>:                     " << std::is_fundamental<T>::value << std::endl;
+	std::cout << "is_scalar<T>:                          " << std::is_scalar<T>::value << std::endl;
+	std::cout << "is_object<T>:                          " << std::is_object<T>::value << std::endl;
+	std::cout << "is_compound<T>:                        " << std::is_compound<T>::value << std::endl;
+	std::cout << "is_trivial<T>:                         " << std::is_trivial<T>::value << std::endl;
+	std::cout << "is_trivially_copyable<T>:              " << std::is_trivially_copyable<T>::value << std::endl;
+	std::cout << "is_standard_layout<T>:                 " << std::is_standard_layout<T>::value << std::endl;
+	std::cout << "is_pod<T>:                             " << std::is_pod<T>::value << std::endl;
+	std::cout << "is_literal_type<T>:                    " << std::is_literal_type<T>::value << std::endl;
 }
 
 template <typename T>
