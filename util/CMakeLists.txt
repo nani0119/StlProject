@@ -96,3 +96,12 @@ add_executable(function_wrapper_exe ${FUNCTION_WRAPPER_FILE})
 
 # 指定安装的文件信息
 install(TARGETS function_wrapper_exe DESTINATION bin)
+# ======================================================
+# 自动包含当前目录代码文件
+set(REFERENCE_WRAPPER_FILE "referencewrapper.cc")
+
+# 生成可执行文件
+add_executable(reference_wrapper_exe ${REFERENCE_WRAPPER_FILE})
+
+# 指定安装的文件信息
+install(TARGETS reference_wrapper_exe DESTINATION bin)
