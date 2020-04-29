@@ -69,3 +69,17 @@ add_custom_target(UTIL_TRAITS
 # 安装设置
 install(FILES util_tupleprint.h DESTINATION include)
 
+# ======================================================
+# 自动包含当前目录代码文件
+# aux_source_directory(. DIR_SRCS)
+
+set(UTIL_CHRONO_DURATION_DIR ${PROJECT_BINARY_DIR}/install/include)
+add_custom_target(UTIL_CHRONO_DURATION
+				  COMMAND  mkdir -p ${UTIL_CHRONO_DURATION_DIR}
+				  COMMAND  cp ${CMAKE_CURRENT_SOURCE_DIR}/util_chrono_duration.h ${UTIL_CHRONO_DURATION_DIR}	
+				  COMMENT "copy util_chrono_duration  header"
+	             )
+
+# 安装设置
+install(FILES util_chrono_duration.h DESTINATION include)
+

@@ -123,3 +123,12 @@ add_executable(ratio_exe ${RATIO_FILE})
 
 # 指定安装的文件信息
 install(TARGETS ratio_exe DESTINATION bin)
+# ======================================================
+# 自动包含当前目录代码文件
+set(CHRONO_FILE "chrono.cc")
+
+# 生成可执行文件
+add_executable(chrono_exe ${CHRONO_FILE})
+
+# 指定安装的文件信息
+install(TARGETS chrono_exe DESTINATION bin)
