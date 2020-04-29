@@ -105,3 +105,12 @@ add_executable(reference_wrapper_exe ${REFERENCE_WRAPPER_FILE})
 
 # 指定安装的文件信息
 install(TARGETS reference_wrapper_exe DESTINATION bin)
+# ======================================================
+# 自动包含当前目录代码文件
+set(AUXILIARY_FUNCTION_FILE "auxiliaryfunction.cc")
+
+# 生成可执行文件
+add_executable(auxiliary_function_exe ${AUXILIARY_FUNCTION_FILE})
+
+# 指定安装的文件信息
+install(TARGETS auxiliary_function_exe DESTINATION bin)
