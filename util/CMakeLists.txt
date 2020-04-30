@@ -132,3 +132,12 @@ add_executable(chrono_exe ${CHRONO_FILE})
 
 # 指定安装的文件信息
 install(TARGETS chrono_exe DESTINATION bin)
+# ======================================================
+# 自动包含当前目录代码文件
+set(CSTD_FILE "cstd.cc")
+
+# 生成可执行文件
+add_executable(cstd_exe ${CSTD_FILE})
+
+# 指定安装的文件信息
+install(TARGETS cstd_exe DESTINATION bin)
