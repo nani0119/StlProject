@@ -2,7 +2,8 @@
 #include <ratio>
 #include <chrono>
 #include <type_traits>
-#include "util_chrono_duration.h"
+#include <string>
+#include "util_chrono.h"
 #include "util_type_traits.h"
 using namespace std;
 
@@ -56,10 +57,62 @@ struct DurationTest
 	}
 };
 
+template <typename C>
+struct ClockTest
+{
+	void testClockProperty()
+	{
+		cout << "clock property: "<<endl;
+		printClockProperty<C>();
+	}
+
+
+    void clockTimepointInfo()
+	{
+		std::chrono::time_point<C> tp;
+		std::cout<< "epoch: " << timepoint2String(tp) << std::endl;
+
+		tp = C::now();
+		std::cout<< "now:   " << timepoint2String(tp) << std::endl;
+
+		std::cout<< "min:   " << timepoint2String(tp.min()) << std::endl;
+
+		std::cout<< "max:   " << timepoint2String(tp.max()) << std::endl;
+
+	}	
+};
+
 int main(int argc, char *argv[])
 {
 	DurationTest dt;
 	dt.testDuration();
 	
+	cout << "########################################################"<<endl;
+	ClockTest <std::chrono::system_clock> sct;
+	std::cout << "system_clock: " << std::endl;
+	sct.testClockProperty();
+	sct.clockTimepointInfo();
+
+	cout << "########################################################"<<endl;
+	ClockTest <std::chrono::steady_clock> st;
+	std::cout << "steady_clock: " << std::endl;
+	st.testClockProperty();
+	st.clockTimepointInfo();
+
+	cout << "########################################################"<<endl;
+	ClockTest <std::chrono::high_resolution_clock> ht;
+	std::cout << "high_resolution_clock: " << std::endl;
+	ht.testClockProperty();
+	ht.clockTimepointInfo();
+
+	cout << "########################################################"<<endl;
+	auto tp1 = makeTimePoint(1970,01,01,00,00,00);
+    std::cout << timepoint2String(tp1) << std::endl;
+	
+	auto tp2 = makeTimePoint<std::chrono::steady_clock>(1970,01,01,00,00,00);
+    std::cout << timepoint2String(tp2) << std::endl;
+	
+	auto tp3 = makeTimePoint<std::chrono::high_resolution_clock>(1970,01,01,00,00,00);
+    std::cout << timepoint2String(tp3) << std::endl;
 	return 0;
 }
