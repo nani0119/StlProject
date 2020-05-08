@@ -52,13 +52,14 @@ endif (BUILD_DEBUG_TYPE)
 
 # ==============================================================
 # 添加头文件路径
-include_directories("${CMAKE_CURRENT_SOURCE_DIR}/Example")
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/example")
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib")
 
 #添加子目录
-add_subdirectory(Example)
+add_subdirectory(example)
 add_subdirectory(lib)
 add_subdirectory(util)
+add_subdirectory(stloverview)
 add_subdirectory(doc)
 # =============================================================
 

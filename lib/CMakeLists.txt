@@ -83,3 +83,17 @@ add_custom_target(UTIL_CHRONO_DURATION
 # 安装设置
 install(FILES util_chrono.h DESTINATION include)
 
+# ======================================================
+# 自动包含当前目录代码文件
+# aux_source_directory(. DIR_SRCS)
+
+set(UTIL_PRINT_ELEMENTS_DIR ${PROJECT_BINARY_DIR}/install/include)
+add_custom_target(UTIL_PRINT_ELEMENTD
+				  COMMAND  mkdir -p ${UTIL_PRINT_ELEMENTS_DIR}
+				  COMMAND  cp ${CMAKE_CURRENT_SOURCE_DIR}/util_print_elements.h ${UTIL_PRINT_ELEMENTS_DIR}	
+				  COMMENT "copy util_print_elements  header"
+	             )
+
+# 安装设置
+install(FILES util_print_elements.h DESTINATION include)
+
