@@ -195,6 +195,37 @@ void testSearch()
 
 }
 
+void testFindEnd()
+{
+
+	PRINT_SPLIT_LINE("find_end");
+
+	deque<int> di;
+	list<int> li;
+	INSERT_ELEMENTS(di,1,7);
+	INSERT_ELEMENTS(di,1,7);
+	INSERT_ELEMENTS(li,3,6);
+
+	PRINT_ELEMENTS(di, "range:");
+	PRINT_ELEMENTS(li, "subrange:");
+
+	deque<int>::iterator end(di.end());
+	auto pos = std::find_end(di.begin(), di.end(),
+							  li.begin(), li.end()
+					);
+	while(pos != end)
+	{
+		cout << "subrange found starting with element "
+			<< distance(di.begin(),pos) + 1
+			<< endl;
+		end = pos;
+
+	    pos =std::find_end(di.begin(), end,
+							  li.begin(), li.end()
+					);
+	}
+}
+
 void testFindFirstOf()
 {
 
@@ -225,6 +256,39 @@ void testFindFirstOf()
 		<< endl;
 }
 
+void testAdjacentFind()
+{
+
+	PRINT_SPLIT_LINE("adjacent_find");
+
+	deque<int> di = {1,2,3,4,4,7,8,9,18};
+
+	PRINT_ELEMENTS(di, "range:");
+
+	deque<int>::iterator pos;
+	pos = std::adjacent_find(di.begin(), di.end());
+
+	if (pos != di.end()) 
+	{
+		cout << "first two elements with equal value have position "
+			<< distance(di.begin(),pos) + 1
+			<< endl;
+    }
+	pos = std::adjacent_find(di.begin(), di.end(),
+								[](const int& elem, const int& nextElem)
+								{
+									return 2*elem == nextElem;
+								}	
+							);
+
+	if (pos != di.end()) 
+	{
+		cout << "first two elements with second value twice the "
+			<< distance(di.begin(),pos) + 1
+			<< endl;
+    }
+}
+
 int main(int argc, char *argv[])
 {
 	testCount();
@@ -233,5 +297,7 @@ int main(int argc, char *argv[])
 	testSearchN();
 	testSearch();
 	testFindFirstOf();
+	testFindEnd();
+	testAdjacentFind();
 	return 0;
 }
