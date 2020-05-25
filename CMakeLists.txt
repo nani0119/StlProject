@@ -61,6 +61,7 @@ add_subdirectory(lib)
 add_subdirectory(util)
 add_subdirectory(stloverview)
 add_subdirectory(doc)
+add_subdirectory(algo)
 # =============================================================
 
 #指定安装时使用的路径前缀
