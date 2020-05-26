@@ -289,6 +289,249 @@ void testAdjacentFind()
     }
 }
 
+void testEqual()
+{
+
+	PRINT_SPLIT_LINE("equal");
+	vector<int> vi;
+	list<int> li;
+
+	INSERT_ELEMENTS(vi, 1, 7);
+	INSERT_ELEMENTS(li, 3, 9);
+
+	PRINT_ELEMENTS(vi, "coll1:");
+	PRINT_ELEMENTS(li, "coll2:");
+
+	if(std::equal(vi.begin(), vi.end(), li.begin()))
+	{
+		cout << "coll1 == coll2" << endl;
+	}
+	else
+	{
+		cout << "coll1 != coll2" << endl;
+	}
+	
+	auto fn = [](const int& e1, const int& e2)
+				{
+					return e1%2 == e2%2;
+				};
+	if(std::equal(vi.begin(), vi.end(), li.begin(),fn))
+	{
+		cout << "coll1 == coll2" << endl;
+	}
+	else
+	{
+		cout << "coll1 != coll2" << endl;
+	}
+}
+
+void testPermutation()
+{
+
+	PRINT_SPLIT_LINE("is_permutation");
+	vector<int> vi = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+	list<int>   li = { 9, 8, 7, 6, 5, 4, 3, 2, 1 };
+	deque<int>  di = { 12, 13, 19, 18, 17, 16, 15, 14, 11 };
+
+	PRINT_ELEMENTS(vi, "coll1: ");
+	PRINT_ELEMENTS(li, "coll2: ");
+	PRINT_ELEMENTS(di, "coll3: ");
+
+	if(std::is_permutation(vi.begin(), vi.end(), li.begin()))
+	{
+		cout << "coll1 and coll2 have equal elements" << endl;
+	}
+	else
+	{
+		cout << "coll1 and coll2 don’t have equal elements" << endl;
+	}
+
+	auto fn = [](const int& e1, const int& e2)
+				{
+					//cout << e1 << "  :  " << e2 << endl << "----------------"<<endl;
+					return e1%2 == e2%2;
+				};
+	
+	if(std::is_permutation(vi.begin(), vi.end(), di.begin(),fn))
+	{
+		cout << "numbers of even and odd elements match" << endl;
+	}
+	else
+	{
+		cout << "numbers of even and odd elements don’t match" << endl;
+	}
+}
+
+void testMismatch()
+{
+	PRINT_SPLIT_LINE("mismatch");
+	vector<int> vi = { 1, 2, 3, 4, 5, 6 };
+	list<int> li = { 1, 2, 4, 8, 16, 3 };
+
+	PRINT_ELEMENTS(vi, "coll1:");
+	PRINT_ELEMENTS(li, "coll2:");
+
+	vector<int>::iterator vit;
+	list<int>::iterator lit;
+
+	std::tie(vit, lit) = std::mismatch(vi.begin(), vi.end(), li.begin());
+	if(vit != vi.end())
+	{
+		cout << "first mismatch: "
+			 << *vit << " and "
+			 << *lit << endl;
+	}
+
+	std::pair<vector<int>::iterator, list<int>::iterator> value = std::mismatch(vi.begin(), vi.end(),
+																	li.begin(),
+																	std::less_equal<int>()
+																	);
+    if (value.first != vi.end())
+	{
+		cout << "not less-or-equal: "
+			 << *value.first << " and "
+			 << *value.second << endl;
+	}
+	
+}
+
+void testLexicographicalCompare()
+{
+
+	PRINT_SPLIT_LINE("lexicographical_compare");
+	vector<int> vi;
+	list<int> li;
+
+	INSERT_ELEMENTS(vi, 1, 9);
+	INSERT_ELEMENTS(li, 2, 10);
+
+	PRINT_ELEMENTS(vi, "coll1:");
+	PRINT_ELEMENTS(li, "coll2:");
+
+	//note: us less<int>, so return true
+	if(std::lexicographical_compare(vi.begin(), vi.end(), li.begin(), li.end()))
+	{
+		cout << "coll1 < coll2"<<endl;
+	}
+
+}
+
+void testIsSorted()
+{
+
+	PRINT_SPLIT_LINE("lexicographical_compare");
+	vector<int> vi;
+	INSERT_ELEMENTS(vi, 1, 8);
+	vi.push_back(7);
+
+	PRINT_ELEMENTS(vi, "coll:");
+
+	if(std::is_sorted(vi.begin(), vi.end()))
+	{
+		cout << "coll is sorted"<< endl;
+	}
+	else
+	{
+		cout << "coll is not sorted" << endl;
+		auto it = std::is_sorted_until(vi.begin(), vi.end());
+		cout << "unsort position:" << *it << endl;
+	}
+	auto fn = [](const int& e1 , const int& e2){ return e1 + 3 < e2;};
+	if(std::is_sorted(vi.begin(), vi.end(), fn))
+	{
+		cout << "coll is sorted"<< endl;
+	}
+	else
+	{
+		cout << "coll is not sorted" << endl;
+		auto it = std::is_sorted_until(vi.begin(), vi.end(), fn);
+		cout << "unsort position:" << *it << endl;
+	}
+}
+
+void testIsPartitioned()
+{
+	PRINT_SPLIT_LINE("is_partitioned");
+	vector<int> vi;
+	INSERT_ELEMENTS(vi, 1, 10);
+	PRINT_ELEMENTS(vi, "coll1:");
+
+	auto fn = [](const int& e, const int& c){return  e < c;};
+	auto bfn = std::bind(fn, std::placeholders::_1, 5);
+
+	if(std::is_partitioned(vi.begin(), vi.end(), bfn))
+	{
+		cout << "coll is partitioned,";
+		auto it = std::partition_point(vi.begin(), vi.end(), bfn);
+		cout << "   position:" << *it << endl;
+	}
+
+	vi.push_back(3);
+	PRINT_ELEMENTS(vi, "coll2:");
+	if(std::is_partitioned(vi.begin(), vi.end(), bfn))
+	{
+
+	}
+	else
+	{
+		cout << "coll is not partitioned" << endl;
+	}
+}
+
+void testIsHeap()
+{
+	PRINT_SPLIT_LINE("is_partitioned");
+	vector<int> vi;
+	INSERT_ELEMENTS(vi, 1, 10);
+	PRINT_ELEMENTS(vi, "coll1:");
+
+	auto fn = [](const int& e1, const int & e2) {return e1 % 2 == 1 && e2 % 2 == 0;};
+
+	// heap from more ones to less ones 
+	if(std::is_heap(vi.crbegin(), vi.crend()))
+	{
+		cout << "coll is heap" << endl;
+	}
+
+	if(std::is_heap(vi.begin(), vi.end(), fn))
+	{
+
+	}
+	else
+	{
+		cout << "coll is not head,";
+		auto it = std::is_heap_until(vi.begin(), vi.end(), fn);
+		cout << "position: " << *it << endl;
+	}
+	
+}
+
+void testAllAnyNone()
+{
+	PRINT_SPLIT_LINE("is_partitioned");
+	vector<int> vi;
+	INSERT_ELEMENTS(vi, 1, 10);
+	PRINT_ELEMENTS(vi, "coll1:");
+
+	auto fn = [](const int& e, const int& i){ return e > i;};
+
+	using namespace std::placeholders;
+	if(std::all_of(vi.begin(), vi.end(), std::bind(fn, _1, 0)))
+	{
+		cout << "all of numbers is greater than 0" << endl;
+	}
+
+	if(std::any_of(vi.begin(), vi.end(), std::bind(fn, _1, 9)))
+	{
+		cout << "any of numbers is greater than 9" << endl;
+	}
+
+	if(std::none_of(vi.begin(), vi.end(), std::bind(fn, _1, 10)))
+	{
+		cout << "none of numbers is greater than 10" << endl;
+	}
+}
+
 int main(int argc, char *argv[])
 {
 	testCount();
@@ -299,5 +542,13 @@ int main(int argc, char *argv[])
 	testFindFirstOf();
 	testFindEnd();
 	testAdjacentFind();
+	testEqual();
+	testPermutation();
+	testMismatch();
+	testLexicographicalCompare();	
+	testIsSorted();
+	testIsPartitioned();
+	testIsHeap();
+	testAllAnyNone();	
 	return 0;
 }
