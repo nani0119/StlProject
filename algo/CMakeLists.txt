@@ -22,3 +22,12 @@ target_link_libraries(non_modifying_algo_exe ${EXTRA_LIBS})
 # 指定安装的文件信息
 install(TARGETS non_modifying_algo_exe DESTINATION bin)
 
+# ======================================================
+
+set(MODIFYING_ALGO_FILE "modifyingalgo.cc")
+
+add_executable(modifying_algo_exe ${MODIFYING_ALGO_FILE})
+
+target_link_libraries(modifying_algo_exe ${EXTRA_LIBS})
+
+install(TARGETS modifying_algo_exe DESTINATION bin)
