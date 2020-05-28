@@ -99,12 +99,68 @@ void testSwapRange()
     PRINT_ELEMENTS(di, "swap head and tail:");
 
 }
+#include <cstdlib>
+void testAssignNewValue()
+{
+    PRINT_SPLIT_LINE("fill&generate&iota");
+    std::fill_n(ostream_iterator<float>(cout, " "), 5, 7.7);
+    cout << endl;
 
+    vector<int> vi(10);
+    std::fill(vi.begin(), vi.end(), 6);
+    PRINT_ELEMENTS(vi);
+
+    deque<int> di(10);
+    std::generate(di.begin(),di.end(), []() ->int {return rand();});
+    PRINT_ELEMENTS(di);
+
+    std::generate_n(ostream_iterator<int>(cout, " "), 10, rand);
+    cout << endl;
+    
+    std::iota(di.begin(), di.end(), -1);
+    PRINT_ELEMENTS(di);
+}
+
+void testReplace()
+{
+    PRINT_SPLIT_LINE("replace");
+    vector<int> vi;
+    INSERT_ELEMENTS(vi, 2, 7);
+    INSERT_ELEMENTS(vi, 4, 10);
+    PRINT_ELEMENTS(vi, "origin:");
+    std::replace(vi.begin(), vi.end(), 6, 8);
+    PRINT_ELEMENTS(vi, "replace:");
+
+    std::replace_if(
+        vi.begin(), vi.end(),
+        [](const int &e) -> bool { return e % 2 == 0; },
+        0);
+    PRINT_ELEMENTS(vi, "replace_if:");
+
+    std::iota(vi.begin(), vi.end(), 1);
+    PRINT_ELEMENTS(vi, "origin:");
+    std::replace_copy(vi.begin(), vi.end(),
+                      ostream_iterator<int>(cout, " "),
+                      3,
+                      0);
+    cout << endl;
+    PRINT_ELEMENTS(vi, "source:");
+
+    cout << "replace_copy_if:";
+
+    std::replace_copy_if(
+        vi.begin(), vi.end(), ostream_iterator<int>(cout, " "),
+        [](const int &e) { return e % 2 == 1; },
+        0);
+    cout << endl;
+}
 int main(int argc, char const *argv[])
 {
     testCopy();
     testMove();
     testTransform();
     testSwapRange();
+    testAssignNewValue();
+    testReplace();
     return 0;
 }
