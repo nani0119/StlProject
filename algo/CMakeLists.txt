@@ -43,3 +43,15 @@ target_link_libraries(removing_algo_exe ${EXTRA_LIBS})
 
 # 指定安装的文件信息
 install(TARGETS removing_algo_exe DESTINATION bin)
+# ======================================================
+# 自动包含当前目录代码文件
+set(MUTATING_ALGO_FILE "mutatingalgo.cc")
+
+# 生成可执行文件
+add_executable(mutating_algo_exe ${MUTATING_ALGO_FILE})
+
+# 链接库文件
+target_link_libraries(mutating_algo_exe ${EXTRA_LIBS})
+
+# 指定安装的文件信息
+install(TARGETS mutating_algo_exe DESTINATION bin)
