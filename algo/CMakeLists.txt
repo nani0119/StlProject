@@ -67,3 +67,15 @@ target_link_libraries(sorting_algo_exe ${EXTRA_LIBS})
 
 # 指定安装的文件信息
 install(TARGETS sorting_algo_exe DESTINATION bin)
+# ======================================================
+# 自动包含当前目录代码文件
+set(SORTED_RANGE_ALGO_FILE "sortedrangealgo.cc")
+
+# 生成可执行文件
+add_executable(sorted_range_algo_exe ${SORTED_RANGE_ALGO_FILE})
+
+# 链接库文件
+target_link_libraries(sorted_range_algo_exe ${EXTRA_LIBS})
+
+# 指定安装的文件信息
+install(TARGETS sorted_range_algo_exe DESTINATION bin)
