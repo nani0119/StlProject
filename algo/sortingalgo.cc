@@ -92,9 +92,10 @@ void testHeap()
     PRINT_ELEMENTS(vi, "make heap:");
 
     std::pop_heap(vi.begin(), vi.end());
+    PRINT_ELEMENTS(vi, "pop heap :");
     cout << "back     :" << vi.back() << endl;
     vi.pop_back();
-    PRINT_ELEMENTS(vi, "pop heap :");
+    PRINT_ELEMENTS(vi, "pop back :");
 
     vi.push_back(10);
     std::push_heap(vi.begin(), vi.end());
