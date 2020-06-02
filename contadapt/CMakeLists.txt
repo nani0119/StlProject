@@ -33,3 +33,15 @@ target_link_libraries(queue_exe ${EXTRA_LIBS})
 
 # 指定安装的文件信息
 install(TARGETS queue_exe DESTINATION bin)
+# ======================================================
+# 自动包含当前目录代码文件
+set(PRIORITY_QUEUE_ADAPTOR_FILE "priorityqueue.cc")
+
+# 生成可执行文件
+add_executable(priority_queue_exe ${PRIORITY_QUEUE_ADAPTOR_FILE})
+
+# 链接库文件
+target_link_libraries(priority_queue_exe ${EXTRA_LIBS})
+
+# 指定安装的文件信息
+install(TARGETS priority_queue_exe DESTINATION bin)
