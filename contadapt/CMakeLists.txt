@@ -45,3 +45,15 @@ target_link_libraries(priority_queue_exe ${EXTRA_LIBS})
 
 # 指定安装的文件信息
 install(TARGETS priority_queue_exe DESTINATION bin)
+# ======================================================
+# 自动包含当前目录代码文件
+set(BITSET_FILE "bitset.cc")
+
+# 生成可执行文件
+add_executable(bitset_exe ${BITSET_FILE})
+
+# 链接库文件
+target_link_libraries(bitset_exe ${EXTRA_LIBS})
+
+# 指定安装的文件信息
+install(TARGETS bitset_exe DESTINATION bin)
