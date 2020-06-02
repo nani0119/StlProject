@@ -21,3 +21,15 @@ target_link_libraries(stack_exe ${EXTRA_LIBS})
 
 # 指定安装的文件信息
 install(TARGETS stack_exe DESTINATION bin)
+# ======================================================
+# 自动包含当前目录代码文件
+set(QUEUE_ADAPTOR_FILE "queue.cc")
+
+# 生成可执行文件
+add_executable(queue_exe ${QUEUE_ADAPTOR_FILE})
+
+# 链接库文件
+target_link_libraries(queue_exe ${EXTRA_LIBS})
+
+# 指定安装的文件信息
+install(TARGETS queue_exe DESTINATION bin)
