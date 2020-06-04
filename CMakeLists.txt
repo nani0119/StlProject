@@ -63,6 +63,7 @@ add_subdirectory(stloverview)
 add_subdirectory(doc)
 add_subdirectory(algo)
 add_subdirectory(contadapt)
+add_subdirectory(regex)
 # =============================================================
 
 #指定安装时使用的路径前缀
