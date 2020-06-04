@@ -93,13 +93,13 @@ int main(int argc, char const *argv[])
 {
     //string data = "<tag-name>the value</tag-name>";
 
-    string data = "<person>\n"
-                  " <first>Nico</first>\n"
-                  " <middle>Bill</middle>\n"
-                  " <last>Josuttis</last>\n"
-                  "</person>\n";
+    string data = "<person>"
+                   "<first>Nico</first>"
+                   "<middle>Bill</middle>"
+                   "<last>Josuttis</last>"
+                  "</person>";
 
-    Regex reg("<(.*)>(.*)</(\\1)>");
+    Regex reg("<(.*)>([^>]*)</(\\1)>");
     testMatchResult(data, reg);
     return 0;
 }
