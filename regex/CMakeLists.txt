@@ -34,3 +34,15 @@ target_link_libraries(regex_match_result_exe ${EXTRA_LIBS})
 
 # 指定安装的文件信息
 install(TARGETS regex_match_result_exe DESTINATION bin)
+# ======================================================
+# 自动包含当前目录代码文件
+set(REGEX_ITERATOR_FILE "regexiterator.cc")
+
+# 生成可执行文件
+add_executable(regex_iterator_exe ${REGEX_ITERATOR_FILE})
+
+# 链接库文件
+target_link_libraries(regex_iterator_exe ${EXTRA_LIBS})
+
+# 指定安装的文件信息
+install(TARGETS regex_iterator_exe DESTINATION bin)
