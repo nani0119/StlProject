@@ -32,6 +32,11 @@ class Regex:public regex
         }
 };
 
+// <(.*)>(.*)<(/\\1)>
+// XML tag:        <tag-name>the value</tag-name>.............
+//                 \--m[1]--\--m[2]---\--m[3]---\
+// \----prefix---\ \---------m[0]---------------\\--suffix----\
+
 void testMatchResult(const string& data, Regex& reg)
 {
     cout << string(80, '=') << endl;
