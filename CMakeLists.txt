@@ -64,6 +64,7 @@ add_subdirectory(doc)
 add_subdirectory(algo)
 add_subdirectory(contadapt)
 add_subdirectory(regex)
+add_subdirectory(io)
 # =============================================================
 
 #指定安装时使用的路径前缀
