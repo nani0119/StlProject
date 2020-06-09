@@ -5,6 +5,13 @@ using namespace std;
 
 
 template<typename charT, typename traits>
+inline std::basic_ostream<charT, traits>& goBack(std::basic_ostream<charT, traits>&strm)
+{
+    strm<<'\r';
+    return strm;
+}
+
+template<typename charT, typename traits>
 inline std::basic_ostream<charT, traits>& funcDelimManipulator(std::basic_ostream<charT, traits>&strm)
 {
     strm << " | ";
@@ -35,7 +42,7 @@ class ClassDelimManipulator
         }
         
         template<typename charT, typename traits>
-        friend std::basic_ostream<charT, traits>& operator << (std::basic_ostream<charT, traits>& strm, ClassDelimManipulator c)
+        friend inline std::basic_ostream<charT, traits>& operator << (std::basic_ostream<charT, traits>& strm, ClassDelimManipulator c)
         {
             //return c(strm);
 
@@ -48,6 +55,7 @@ class ClassDelimManipulator
 
 void testManipulator()
 {
+    cout << "aaaaaaaaa" << goBack<<"bbbbbbbb" << endl;
     cout << funcDelimManipulator << "add a delim with function" << funcDelimManipulator << endl;
     cout << ClassDelimManipulator() << "add a delim with class " << ClassDelimManipulator() << endl;
     cout << ClassDelimManipulator(" // ") << "add a delim with class " << ClassDelimManipulator(" // ") << endl;
