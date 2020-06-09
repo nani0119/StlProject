@@ -85,3 +85,15 @@ target_link_libraries(io_manipulator_exe ${EXTRA_LIBS})
 
 # 指定安装的文件信息
 install(TARGETS io_manipulator_exe DESTINATION bin)
+# ======================================================
+# 自动包含当前目录代码文件
+set(IO_FORMATTING_FILE "ioformatting.cc")
+
+# 生成可执行文件
+add_executable(io_formatting_exe ${IO_FORMATTING_FILE})
+
+# 链接库文件
+target_link_libraries(io_formatting_exe ${EXTRA_LIBS})
+
+# 指定安装的文件信息
+install(TARGETS io_formatting_exe DESTINATION bin)
