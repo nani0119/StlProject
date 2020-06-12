@@ -109,3 +109,15 @@ target_link_libraries(io_fstream_exe ${EXTRA_LIBS})
 
 # 指定安装的文件信息
 install(TARGETS io_fstream_exe DESTINATION bin)
+# ======================================================
+# 自动包含当前目录代码文件
+set(IO_USERDEFINED_FILE "iouserdefined.cc")
+
+# 生成可执行文件
+add_executable(io_userdefined_exe ${IO_USERDEFINED_FILE})
+
+# 链接库文件
+target_link_libraries(io_userdefined_exe ${EXTRA_LIBS})
+
+# 指定安装的文件信息
+install(TARGETS io_userdefined_exe DESTINATION bin)
