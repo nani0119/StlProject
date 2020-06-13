@@ -77,16 +77,19 @@ class presuffix
         }
         
         template <typename charT, typename traits>
-        std::basic_ostream<charT, traits>& operator()(std::basic_ostream<charT, traits>& strm)
+        std::basic_ostream<charT, traits>& operator()(std::basic_ostream<charT, traits>& strm) const
         {
             strm.pword(__faction_presuffix_index) =  const_cast<char*>(fix.c_str());
             return strm;
         }
 
         template <typename charT, typename traits>
-        friend std::basic_ostream<charT, traits>& operator<<(std::basic_ostream<charT, traits>& strm, presuffix op)
+        friend std::basic_ostream<charT, traits>& operator<<(std::basic_ostream<charT, traits>& strm, const presuffix& op)
         {
             return op(strm);
+            // strm.pword(__faction_presuffix_index) =  const_cast<char*>(op.fix.c_str());
+            // return strm;
+
         }
 
 };
