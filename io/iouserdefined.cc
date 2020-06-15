@@ -1,5 +1,6 @@
 #include <iostream>
 #include <sstream>
+#include <fstream>
 #include <iomanip>
 #include <string>
 #include <exception>
@@ -128,6 +129,36 @@ inline std::basic_ostream<charT, traits>& operator <<(std::basic_ostream<charT, 
 
 }
 
+
+template <typename charT, typename traits>
+inline std::basic_istream<charT, traits>&
+operator >>(std::basic_istream<charT, traits>& strm, Fraction& f)
+{
+    int n, d;
+    strm >> n;
+    if(strm.peek() == '/')
+    {
+        strm.ignore();
+        strm >> d;
+    }
+    else
+    {
+        d = 1;
+    }
+
+    if(d == 0)
+    {
+        strm.setstate(std::ios::failbit);
+        return strm;
+    }
+    
+    if(strm)
+    {
+        f = Fraction(n,d);
+    }
+    return strm;
+} 
+
 void testUserDefineOperator()
 {
     Fraction vat(19,100);
@@ -146,17 +177,50 @@ void testUserDefineOperator()
     cout << *p << v2 << endl;
     delete p;
     cout << v2 << endl;
+    cout << presuffix()<<endl;
 }
 
-void test()
+void testInputOperator()
 {
-    Fraction v1(11,22);
+    Fraction v1;
+    cin >> v1;
     cout << v1 << endl;
 }
+
+
+void event_callback(std::ios::event e, std::ios_base& strm, int arg)
+{
+  switch (e)
+  {
+    case strm.copyfmt_event:
+      std::cout << "copyfmt_event\n"; break;
+    case strm.imbue_event:
+      std::cout << "imbue_event\n"; break;
+    case strm.erase_event:
+      std::cout << "erase_event\n"; break;
+  }
+  std::cout <<"arg:"<< arg << endl;
+  cout << "----------------------------" << endl;
+}
+
+void testEventCallback()
+{
+    stringstream ss;
+    ss.register_callback(event_callback, 0);
+    ss.register_callback(event_callback, 1);
+    // ss << "aaaaaa" << endl;
+    // ss.imbue (std::cout.getloc());
+    // cout << ss.str() << endl;
+
+    fstream fs;
+    fs.copyfmt(ss);
+}
+
 int main(int argc, char const *argv[])
 {
     testUserDefineOperator();
-    cout << "======================================" << endl;
-    test(); 
+    cout << "===================input fraction===========" << endl;
+    testInputOperator(); 
+    testEventCallback();
     return 0;
 }
