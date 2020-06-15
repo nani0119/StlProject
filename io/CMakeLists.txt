@@ -121,3 +121,15 @@ target_link_libraries(io_userdefined_exe ${EXTRA_LIBS})
 
 # 指定安装的文件信息
 install(TARGETS io_userdefined_exe DESTINATION bin)
+# ======================================================
+# 自动包含当前目录代码文件
+set(IO_CONNECT_INPUT_OUTPUT_FILE "ioconnectInputAndOutput.cc")
+
+# 生成可执行文件
+add_executable(io_connect_input_output_exe ${IO_CONNECT_INPUT_OUTPUT_FILE})
+
+# 链接库文件
+target_link_libraries(io_connect_input_output_exe ${EXTRA_LIBS})
+
+# 指定安装的文件信息
+install(TARGETS io_connect_input_output_exe DESTINATION bin)
