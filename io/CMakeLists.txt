@@ -133,3 +133,28 @@ target_link_libraries(io_connect_input_output_exe ${EXTRA_LIBS})
 
 # 指定安装的文件信息
 install(TARGETS io_connect_input_output_exe DESTINATION bin)
+# ======================================================
+# 自动包含当前目录代码文件
+set(IO_STREAMBUF_FILE "iostreambuf.cc")
+
+# 生成可执行文件
+add_executable(io_streambuf_exe ${IO_STREAMBUF_FILE})
+
+# 链接库文件
+target_link_libraries(io_streambuf_exe ${EXTRA_LIBS})
+
+# 指定安装的文件信息
+install(TARGETS io_streambuf_exe DESTINATION bin)
+
+# ======================================================
+# 自动包含当前目录代码文件
+set(IO_FDSTREAM_FILE "iofdstream.cc")
+
+# 生成可执行文件
+add_executable(io_fdstream_exe ${IO_FDSTREAM_FILE})
+
+# 链接库文件
+target_link_libraries(io_fdstream_exe ${EXTRA_LIBS})
+
+# 指定安装的文件信息
+install(TARGETS io_fdstream_exe DESTINATION bin)
