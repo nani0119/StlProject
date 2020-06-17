@@ -21,3 +21,15 @@ target_link_libraries(i18n_loc_exe ${EXTRA_LIBS})
 
 # 指定安装的文件信息
 install(TARGETS i18n_loc_exe DESTINATION bin)
+# ======================================================
+# 自动包含当前目录代码文件
+set(I18N_FACET_CAT_FILE "facetcat.cc")
+
+# 生成可执行文件
+add_executable(i18n_facet_cat_exe ${I18N_FACET_CAT_FILE})
+
+# 链接库文件
+target_link_libraries(i18n_facet_cat_exe ${EXTRA_LIBS})
+
+# 指定安装的文件信息
+install(TARGETS i18n_facet_cat_exe DESTINATION bin)
